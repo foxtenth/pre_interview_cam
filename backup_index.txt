@@ -111,21 +111,14 @@
         </div>
     </div>
    
-	<script>
-    const canvas = document.getElementById("background");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let colors = ["#64B5F6", "#81C784"]; // Light Blue and Light Green colors
-    let lines = [];
-
-    // Detect if the device is a smartphone
-    function isSmartphone() {
-        return window.innerWidth <= 768; // Adjust breakpoint as needed
-    }
-
-    if (!isSmartphone()) {
+    <script>
+        const canvas = document.getElementById("background");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+       
+        let colors = ["#64B5F6", "#81C784"]; // Light Blue and Light Green colors
+        let lines = [];
         for (let i = 0; i < 50; i++) {
             lines.push({
                 x: Math.random() * canvas.width,
@@ -135,7 +128,7 @@
                 color: colors[Math.floor(Math.random() * colors.length)]
             });
         }
-
+       
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.lineWidth = 2;
@@ -153,10 +146,7 @@
             requestAnimationFrame(animate);
         }
         animate();
-    } else {
-        canvas.style.display = "none"; // Hide canvas on smartphones
-    }
-	</script>
-
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
