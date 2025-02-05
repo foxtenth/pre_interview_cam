@@ -20,8 +20,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0;
         }
-
 
         h2 {
             color: #00796b;
@@ -47,6 +47,7 @@
             position: relative;
             z-index: 2;
             max-width: 900px;
+            width: 100%;
         }
 
         ul {
@@ -59,9 +60,9 @@
             font-weight: 900;
             margin-right: 10px;
         }
-	ul li::marker {
- 	 color: #00796b;
-	}
+        ul li::marker {
+            color: #00796b;
+        }
 
         canvas {
             position: fixed;
@@ -72,33 +73,61 @@
             z-index: 1;
         }
 
-    	p {
-       	 text-align: justify;
-   	 }
+        p {
+            text-align: justify;
+        }
 
-@keyframes colorShift {
-    0% {
-        background-position: 0% 0; /* Start from the left */
-    }
-    50% {
-        background-position: 100% 0; /* Move to the right */
-    }
-    100% {
-        background-position: 0% 0; /* Move back to the left */
-    }
-}
+        @keyframes colorShift {
+            0% {
+                background-position: 0% 0; /* Start from the left */
+            }
+            50% {
+                background-position: 100% 0; /* Move to the right */
+            }
+            100% {
+                background-position: 0% 0; /* Move back to the left */
+            }
+        }
 
-h1 {
-    font-size: 2.5em; /* Adjust size as needed */
-    font-weight: bold;
-    background: linear-gradient(90deg, #64B5F6, #81C784); /* Blue to Green */
-    background-size: 300% 100%; /* Stretch the gradient */
-    color: transparent; /* Make text transparent so we can see the gradient */
-    -webkit-background-clip: text; /* Clip the background to text */
-    background-clip: text; /* For non-webkit browsers */
-    animation: colorShift 10s linear infinite; /* Apply gradient movement */
-}
+        h1 {
+            font-size: 2.5em; /* Adjust size as needed */
+            font-weight: bold;
+            background: linear-gradient(90deg, #64B5F6, #81C784); /* Blue to Green */
+            background-size: 300% 100%; /* Stretch the gradient */
+            color: transparent; /* Make text transparent so we can see the gradient */
+            -webkit-background-clip: text; /* Clip the background to text */
+            background-clip: text; /* For non-webkit browsers */
+            animation: colorShift 10s linear infinite; /* Apply gradient movement */
+        }
 
+        /* Responsive design for mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .container {
+                padding: 10px;
+                box-shadow: none; /* Reduce box-shadow on small screens */
+            }
+
+            .row {
+                margin-bottom: 20px;
+            }
+
+            .col-md-6 {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            canvas {
+                display: none; /* Hide canvas on smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -106,7 +135,7 @@ h1 {
     <div class="container text-center">
         <h1>Enhancing Language Learning with AI</h1>
         <p>The Language Centre at Cambridge University can leverage AI-driven technologies to enhance user engagement, improve learning outcomes, and drive innovation in digital learning - in several ways listed below:</p>
-       
+
         <div class="row">
             <div class="col-md-6">
                 <h2><i class="fas fa-cogs"></i> AI-Powered Personalization</h2>
@@ -123,7 +152,7 @@ h1 {
                 </ul>
             </div>
         </div>
-       
+
         <div class="row">
             <div class="col-md-6">
                 <h2><i class="fas fa-user-plus"></i> Enhanced User Engagement</h2>
@@ -141,53 +170,53 @@ h1 {
             </div>
         </div>
     </div>
-   
-	<script>
-    const canvas = document.getElementById("background");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 
-    let colors = ["#64B5F6", "#81C784"]; // Light Blue and Light Green colors
-    let lines = [];
+    <script>
+        const canvas = document.getElementById("background");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-    // Detect if the device is a smartphone
-    function isSmartphone() {
-        return window.innerWidth <= 768; // Adjust breakpoint as needed
-    }
+        let colors = ["#64B5F6", "#81C784"]; // Light Blue and Light Green colors
+        let lines = [];
 
-    if (!isSmartphone()) {
-        for (let i = 0; i < 50; i++) {
-            lines.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                dx: (Math.random() - 0.5) * 1,
-                dy: (Math.random() - 0.5) * 1,
-                color: colors[Math.floor(Math.random() * colors.length)]
-            });
+        // Detect if the device is a smartphone
+        function isSmartphone() {
+            return window.innerWidth <= 768; // Adjust breakpoint as needed
         }
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.lineWidth = 2;
-            lines.forEach(line => {
-                ctx.strokeStyle = line.color;
-                ctx.beginPath();
-                ctx.moveTo(line.x, line.y);
-                line.x += line.dx;
-                line.y += line.dy;
-                if (line.x < 0 || line.x > canvas.width) line.dx *= -1;
-                if (line.y < 0 || line.y > canvas.height) line.dy *= -1;
-                ctx.lineTo(line.x + line.dx * 10, line.y + line.dy * 10);
-                ctx.stroke();
-            });
-            requestAnimationFrame(animate);
+        if (!isSmartphone()) {
+            for (let i = 0; i < 50; i++) {
+                lines.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    dx: (Math.random() - 0.5) * 1,
+                    dy: (Math.random() - 0.5) * 1,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.lineWidth = 2;
+                lines.forEach(line => {
+                    ctx.strokeStyle = line.color;
+                    ctx.beginPath();
+                    ctx.moveTo(line.x, line.y);
+                    line.x += line.dx;
+                    line.y += line.dy;
+                    if (line.x < 0 || line.x > canvas.width) line.dx *= -1;
+                    if (line.y < 0 || line.y > canvas.height) line.dy *= -1;
+                    ctx.lineTo(line.x + line.dx * 10, line.y + line.dy * 10);
+                    ctx.stroke();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        } else {
+            canvas.style.display = "none"; // Hide canvas on smartphones
         }
-        animate();
-    } else {
-        canvas.style.display = "none"; // Hide canvas on smartphones
-    }
-	</script>
+    </script>
 
 </body>
 </html>
