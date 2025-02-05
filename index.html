@@ -54,7 +54,6 @@
             list-style-type: square; /* Use square bullets */
             padding-left: 20px; /* Proper padding for bullets */
             text-align: left; /* Align ul to left */
-            margin-bottom: 20px; /* Add space between lists */
         }
         ul li::before {
             font-family: "Font Awesome 5 Free";
@@ -129,16 +128,6 @@
                 display: none; /* Hide canvas on smaller screens */
             }
         }
-
-        /* New style to stack ul elements vertically */
-        .row {
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Space between each column */
-        }
-        .col-md-6 {
-            width: 100%; /* Ensure columns take up full width in the row */
-        }
     </style>
 </head>
 <body>
@@ -155,15 +144,16 @@
                     <li>AI-driven content recommendations based on user preferences.</li>
                 </ul>
             </div>
-
             <div class="col-md-6">
-                <h2><i class="fas fa-lightbulb"></i> Intelligent Tutoring Systems</h2>
+                <h2><i class="fas fa-solid fa-lightbulb"></i> Intelligent Tutoring Systems</h2>
                 <ul>
                     <li>Chatbots for real-time conversational practice and language exercises.</li>
                     <li>AI-assisted assessments that provide instant feedback.</li>
                 </ul>
             </div>
+        </div>
 
+        <div class="row">
             <div class="col-md-6">
                 <h2><i class="fas fa-user-plus"></i> Enhanced User Engagement</h2>
                 <ul>
@@ -171,7 +161,6 @@
                     <li>AI-enhanced discussion forums with sentiment analysis to improve moderation.</li>
                 </ul>
             </div>
-
             <div class="col-md-6">
                 <h2><i class="fa-solid fa-square-poll-vertical"></i> Data-Driven Insights</h2>
                 <ul>
