@@ -110,6 +110,19 @@ background: linear-gradient(90deg, rgba(255,233,220,1) 0%, rgba(224,247,250,1) 5
             background-clip: text; /* For non-webkit browsers */
             animation: colorShift 10s linear infinite; /* Apply gradient movement */
         }
+	 .footer {
+            position: fixed;
+	    font-family: 'Oswald', sans-serif;
+  		letter-spacing: 0.18em; /* Larger spacing */
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.6em;
+            color: #333;
+            background: white;
+            padding: 3px 5px;
+            border-radius: 3px;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+        }
 
         /* Responsive design for mobile */
         @media (max-width: 768px) {
@@ -124,6 +137,13 @@ background: linear-gradient(90deg, rgba(255,233,220,1) 0%, rgba(224,247,250,1) 5
                 margin-top: 10px; /* Space between sections */
             }
 
+		    .footer {
+        position: static; /* Makes it appear inside the container */
+        text-align: center;
+        display: block;
+        margin-top: 20px; /* Adds space between content and footer */
+    }
+
             h1 {
                 font-size: 2em;
             }
@@ -136,19 +156,7 @@ background: linear-gradient(90deg, rgba(255,233,220,1) 0%, rgba(224,247,250,1) 5
                 display: none; /* Hide canvas on smaller screens */
             }
         }
- .footer {
-            position: fixed;
-	    font-family: 'Oswald', sans-serif;
-  		letter-spacing: 0.18em; /* Larger spacing */
-            bottom: 10px;
-            right: 10px;
-            font-size: 0.6em;
-            color: #333;
-            background: white;
-            padding: 3px 5px;
-            border-radius: 3px;
-            box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-        }
+
     </style>
 </head>
 <body>
