@@ -31,9 +31,9 @@
             padding: 15px; /* Space between sections */
             margin: 20px 0; /* Add margin between each block */
             background-color: #ffffff; /* Background color for each block */
-            border-radius: 8px;
+            border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-            font-size: 1.6em; /* Set a fixed font size for consistency */
+            font-size: 1.4em; /* Set a fixed font size for consistency */
         }
         h2 i {
             margin-right: 10px; /* Add space between icon and text */
@@ -48,6 +48,7 @@
             z-index: 2;
             max-width: 900px;
         }
+
         ul {
             list-style-type: square; /* Use square bullets */
             padding-left: 20px; /* Proper padding for bullets */
@@ -58,6 +59,10 @@
             font-weight: 900;
             margin-right: 10px;
         }
+	ul li::marker {
+ 	 color: #00796b;
+	}
+
         canvas {
             position: fixed;
             top: 0;
